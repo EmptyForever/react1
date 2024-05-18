@@ -1,26 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { MenuHeader } from "./components/Menu";
+import StartSearch from "./components/state/startSearch";
+import UserNotFound from "./components/state/userNotFound";
+import UserPage from "./components/state/found/userPage";
+import UserPageNotRepos from "./components/state/found/userPageNotRepos";
 
-function App() {
+
+const App: React.FC = () => {
+  const [key, setKey] = useState(1);
+  const [component, setComponent] = useState(<>start</>);
+
+  const changeNumber = () => {
+    if (key === 1) {
+      setKey(2);
+    } else {
+      setKey(1);
+    }
+  };
+
+  const changeComponent = () => {
+    switch (key) {
+      case 1:
+        setComponent(<StartSearch />);
+        changeNumber();
+        break;
+      case 2:
+        changeNumber();
+        setComponent(<UserNotFound />);
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <MenuHeader />
+      {/* <StartSearch /> */}
+      {/* <UserNotFound /> */}
+      {/* <UserPageNotRepos /> */}
+      <UserPage />
+    </>
   );
-}
+};
 
 export default App;
