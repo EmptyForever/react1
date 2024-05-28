@@ -1,7 +1,7 @@
 import React from "react";
 import "./userNotFound.css";
 
-function StartSearch() {
+function UserNotFound() {
   return (
     <>
       <div className="flexCenterCenter">
@@ -18,4 +18,4 @@ function StartSearch() {
   );
 }
 
-export default StartSearch;
+export default UserNotFound;

@@ -5,34 +5,9 @@ import StartSearch from "./components/state/startSearch";
 import UserNotFound from "./components/state/userNotFound";
 import UserPage from "./components/state/found/userPage";
 import UserPageNotRepos from "./components/state/found/userPageNotRepos";
-
+import GitHubUser from "./components/state/found/userPageEx";
 
 const App: React.FC = () => {
-  const [key, setKey] = useState(1);
-  const [component, setComponent] = useState(<>start</>);
-
-  const changeNumber = () => {
-    if (key === 1) {
-      setKey(2);
-    } else {
-      setKey(1);
-    }
-  };
-
-  const changeComponent = () => {
-    switch (key) {
-      case 1:
-        setComponent(<StartSearch />);
-        changeNumber();
-        break;
-      case 2:
-        changeNumber();
-        setComponent(<UserNotFound />);
-        break;
-      default:
-        break;
-    }
-  };
 
   return (
     <>
@@ -40,7 +15,8 @@ const App: React.FC = () => {
       {/* <StartSearch /> */}
       {/* <UserNotFound /> */}
       {/* <UserPageNotRepos /> */}
-      <UserPage />
+      {/* <UserPage /> */}
+      {/* <GitHubUser name="mojombo"/> */}
     </>
   );
 };
